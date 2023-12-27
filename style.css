@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppings", sans-serif;
+}
+body{
+    background-color: #191919;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color:white
+}
+canvas {
+    background-color: black;
+}
+.score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.8rem;
+    margin-bottom: 10px; /* Adicione uma margem inferior para espaçamento */
+}
+.scorevalue{
+    font-weight: 700;
+    font-size: 4.5rem;
+    display: block;
+    margin-top: -10px;
+}
+.menuscreen{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+.gameover{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 3rem;
+}
+.finalscore{
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+.replay{
+    border: none;
+    border-radius: 100px;
+    padding: 10px 15px 10px 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    color:#233;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+.finalscore span{
+    margin-left: 5px;
+}
