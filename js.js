@@ -9,13 +9,16 @@ const size = 30
 const toque = new Audio("../assets/audiolegal.mp3")
 let python = [
     { x: 0, y: 0 },
-    { x: 30, y: 0 },
+   
 ]
 let AX = 0, AY = 0, speed = 300, trueover = false, directionex, loopset, wallimit
 const updatedscore = () => {
     score.innerHTML = +score.innerHTML + 10
 }
 const speedcontrol = () => {
+    if (score.innerHTML < 50) {
+        speed = 300
+    }
     if (score.innerHTML >= 50 && score.innerHTML <= 80) {
         speed = 250
     }
@@ -159,7 +162,6 @@ const gameover = () => {
     menu.style.display = "flex"
     finalscore.innerHTML = score.innerHTML
     canvas.style.filter = "blur(3px)"
-    speed = 300
 }
 const loop = () => {
     if (trueover == true) {
