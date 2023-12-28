@@ -7,7 +7,27 @@
     <link rel="stylesheet" href="style.css">
     <title>Jogo da cobrinha</title>
 </head>
+<style>
+    #controls {
+        display: flex;
+        justify-content: space-around;
+        position: fixed;
+        bottom: 10px;
+        width: 100%;
+        z-index: 999;
+    }
 
+    .control-button {
+        width: 100px;
+        height: 100px;
+        background-color: #333;
+        color: white;
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
 <body>
     <div class="score">
         score: <span class="scorevalue">000</span>
