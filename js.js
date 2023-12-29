@@ -9,9 +9,8 @@ const size = 30
 const toque = new Audio("../assets/audiolegal.mp3")
 let python = [
     { x: 0, y: 0 },
-   
 ]
-let AX = 0, AY = 0, speed = 300, trueover = false, directionex, loopset, wallimit
+let AX = 0, AY = 0, speed = 300, trueover = false, directionex, loopset, wallimit, moble
 const updatedscore = () => {
     score.innerHTML = +score.innerHTML + 10
 }
@@ -203,4 +202,57 @@ play.addEventListener("click", () => {
     canvas.style.filter = "none"
     python = [{x: 270, y: 240}]
     loop()
+})
+ //Programação para usuários moble
+const moveleft = () =>{
+    if(directionex !== "right"){
+        directionex = "left"
+    }
+   } 
+const moveup = () => {
+    if(directionex !== "down"){
+        directionex = "up"
+    }
+}
+const movedown = () => {
+    if(directionex !== "up"){
+        directionex = "down"
+    }
+}
+const moveright = () => {
+    if(directionex !== "left"){
+        directionex = "right"
+    }
+}
+const bleft = document.getElementById("left")
+const bup= document.getElementById("up") 
+const bdown = document.getElementById("down") 
+const bright = document.getElementById("right")
+
+bleft.addEventListener("click",() => {
+   moveleft() 
+}) 
+bup.addEventListener("click", () => {
+    moveup()
+})
+bdown.addEventListener("click", () => {
+    movedown()
+})
+bright.addEventListener("click", () => {
+    moveright()
+})
+document.addEventListener("DOMContentLoaded", function () {
+    const modoMobileBtn = document.getElementById("modoMobileBtn")
+    const controlesContainer = document.getElementById("controls")
+    const controlButtons = document.querySelectorAll(".control-button")
+
+    let controlsVisible = false
+
+    modoMobileBtn.addEventListener("click", function () {
+        controlsVisible = !controlsVisible;
+
+        controlButtons.forEach(button => {
+            button.style.display = controlsVisible ? "flex" : "none"
+        })
+    })
 })
