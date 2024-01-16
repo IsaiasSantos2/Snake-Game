@@ -6,11 +6,13 @@ const finalscore = document.querySelector(".finalscore > span")
 const menu = document.querySelector(".menuscreen")
 const play = document.querySelector(".replay")
 const size = 30
-const toque = new Audio("../assets/audiolegal.mp3")
+const toque = new Audio("audiolegal.mp3")
 let python = [
     { x: 0, y: 0 },
 ]
 let AX = 0, AY = 0, speed = 300, trueover = false, directionex, loopset, wallimit, moble
+
+
 const updatedscore = () => {
     score.innerHTML = +score.innerHTML + 10
 }
@@ -53,6 +55,7 @@ const foodpy = {
     color: "green"
 }
 const checkfood = () => {
+    const head = python[python.length - 1]
     if (head.x == foodpy.x && head.y == foodpy.y) {//evita que a comida apareça na cobrinha.
 
         let x = foodposition()
@@ -61,10 +64,9 @@ const checkfood = () => {
         while (python.find((position) => (position.x == x && position.y == y))) { //garante que a comida não apareça dentro da cobrinha
             let x = foodposition()
             let y = foodposition()
-            foodpy.x = x
-            foodpy.y = y
-
         }
+        foodpy.x = x
+        foodpy.y = y
     }
 }
 const food = () => {
@@ -200,38 +202,48 @@ play.addEventListener("click", () => {
     score.innerHTML = "000"
     menu.style.display = "none"
     canvas.style.filter = "none"
-    python = [{x: 270, y: 240}]
+    python = [{ x: 270, y: 240 }]
     loop()
 })
- //Programação para usuários moble
-const moveleft = () =>{
-    if(directionex !== "right"){
+/*if (button.style.display == "flex") {
+
+}*/
+//Programação para usuários moble
+const moveleft = () => {
+    if (directionex !== "right") {
         directionex = "left"
     }
-   } 
+}
 const moveup = () => {
-    if(directionex !== "down"){
+    if (directionex !== "down") {
         directionex = "up"
     }
 }
 const movedown = () => {
-    if(directionex !== "up"){
+    if (directionex !== "up") {
         directionex = "down"
     }
 }
 const moveright = () => {
-    if(directionex !== "left"){
+    if (directionex !== "left") {
         directionex = "right"
     }
 }
 const bleft = document.getElementById("left")
-const bup= document.getElementById("up") 
-const bdown = document.getElementById("down") 
+const bup = document.getElementById("up")
+const bdown = document.getElementById("down")
 const bright = document.getElementById("right")
+let lastclick = 0
+const click = () => {
+    const now = Date.now()
+    if (now - lastclick < 300) {
+        return
+    }
+}
 
-bleft.addEventListener("click",() => {
-   moveleft() 
-}) 
+bleft.addEventListener("click", () => {
+    moveleft()
+})
 bup.addEventListener("click", () => {
     moveup()
 })
